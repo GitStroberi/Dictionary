@@ -1,0 +1,9 @@
+﻿{
+    "dictionary": {
+        "fruits": {
+            "apple": "A round fruit with red, yellow, or green skin and a crisp flesh.",
+            "banana": "A long curved fruit with a yellow skin and soft, sweet flesh.",
+            "orange": "A round citrus fruit with a tough bright orange skin and juicy sweet flesh."
+        }
+    }
+}
