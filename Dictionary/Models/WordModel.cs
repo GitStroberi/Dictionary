@@ -3,14 +3,18 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Dictionary.Models
 {
     internal class WordModel
     {
-        private string Word { get; set; }
-        private string Definition { get; set; }
-        private string Category { get; set; }
+        [JsonPropertyName("category")]
+        public string Category { get; set; }
+        [JsonPropertyName("word")]
+        public string Word { get; set; }
+        [JsonPropertyName("definition")]
+        public string Definition { get; set; }
     }
 }

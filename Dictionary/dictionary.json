@@ -1,9 +1,17 @@
-﻿{
-    "dictionary": {
-        "fruits": {
-            "apple": "A round fruit with red, yellow, or green skin and a crisp flesh.",
-            "banana": "A long curved fruit with a yellow skin and soft, sweet flesh.",
-            "orange": "A round citrus fruit with a tough bright orange skin and juicy sweet flesh."
-        }
+[
+    {
+        "category": "greeting",
+        "word": "hello",
+        "definition": "a greeting"
+    },
+    {
+        "category": "noun",
+        "word": "world",
+        "definition": "the earth and all people and things on it"
+    },
+    {
+        "category": "noun",
+        "word": "dog apple",
+        "definition": "A dog apple"
     }
-}
+]
