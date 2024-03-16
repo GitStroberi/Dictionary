@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 
 namespace Dictionary.Models
 {
-    internal class DictionaryManager
+    public class DictionaryManager
     {
         List<WordModel> words { get; set;} = new List<WordModel>();
 

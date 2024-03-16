@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Dictionary.MVVM.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Dictionary.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Welcome to the Dictionary App"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Margin="0,0,0,20"/>
+            <Button Content="Add Word"
+                    Width="100"
+                    Height="30"
+                    Command="{Binding AddWordCommand}"/>
+            <Button Content="View Words"
+                    Width="100"
+                    Height="30"
+                    Command="{Binding ViewWordsCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

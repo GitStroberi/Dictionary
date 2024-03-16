@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Dictionary.Models
 {
-    internal class WordModel
+    public class WordModel
     {
         [JsonPropertyName("category")]
         public string Category { get; set; }
