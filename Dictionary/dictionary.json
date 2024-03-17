@@ -5,6 +5,21 @@
         "definition": "a greeting"
     },
     {
+        "category": "greeting",
+        "word": "hello1",
+        "definition": "a greeting"
+    },
+    {
+        "category": "greeting",
+        "word": "hello2",
+        "definition": "a greeting"
+    },
+    {
+        "category": "greeting",
+        "word": "hello33",
+        "definition": "a greeting"
+    },
+    {
         "category": "noun",
         "word": "world",
         "definition": "the earth and all people and things on it"
@@ -13,5 +28,10 @@
         "category": "noun",
         "word": "dog apple",
         "definition": "A dog apple"
+    },
+    {
+        "category": "noun",
+        "word": "dog apple 2",
+        "definition": "A dog apple 2"
     }
 ]

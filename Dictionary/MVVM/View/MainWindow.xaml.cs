@@ -24,12 +24,6 @@ namespace Dictionary
         public MainWindow()
         {
             InitializeComponent();
-
-            ///try to read the json placed in the current folder named "dictionary.json" by initializing a DictionaryModel
-            DictionaryManager manager = new DictionaryManager("../../dictionary.json");
-
-            ///add a word
-            manager.AddWord(new WordModel { Category = "Noun", Word = "Dog apple", Definition = "A dog apple" });
         }
     }
 }

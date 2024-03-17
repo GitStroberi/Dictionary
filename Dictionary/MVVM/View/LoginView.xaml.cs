@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Dictionary.Pages
+namespace Dictionary.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class LoginPage : UserControl
+    public partial class LoginView : UserControl
     {
-        public LoginPage()
+        public LoginView()
         {
             InitializeComponent();
         }

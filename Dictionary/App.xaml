@@ -8,5 +8,14 @@
         <DataTemplate DataType="{x:Type TypeName=viewModel:HomeViewModel}">
             <view:HomeView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type TypeName=viewModel:LoginViewModel}">
+            <view:LoginView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type TypeName=viewModel:GameViewModel}">
+            <view:GameView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type TypeName=viewModel:AdminViewModel}">
+            <view:AdminView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

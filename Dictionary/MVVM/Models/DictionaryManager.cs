@@ -140,6 +140,19 @@ namespace Dictionary.Models
             return "Word not found";
         }
 
+        public List<string> GetSuggestions(string word)
+        {
+            List<string> suggestions = new List<string>();
+            foreach (WordModel w in words)
+            {
+                if (w.Word.StartsWith(word))
+                {
+                    suggestions.Add(w.Word);
+                }
+            }
+            return suggestions;
+        }
+
         public List<WordModel> GetRandomWords(int number)
         {
             List<WordModel> randomWords = new List<WordModel>();
