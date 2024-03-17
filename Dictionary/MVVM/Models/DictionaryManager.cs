@@ -128,6 +128,22 @@ namespace Dictionary.Models
             return "Word not found";
         }
 
+        public string GetDefinition(string word, string category)
+        {
+            if (category == "ALL")
+            {
+                return GetDefinition(word);
+            }
+            foreach (WordModel w in words)
+            {
+                if (w.Word == word && w.Category == category)
+                {
+                    return w.Definition;
+                }
+            }
+            return "Word not found";
+        }
+
         public string GetCategory(string word)
         {
             foreach (WordModel w in words)
@@ -135,6 +151,18 @@ namespace Dictionary.Models
                 if (w.Word == word)
                 {
                     return w.Category;
+                }
+            }
+            return "Word not found";
+        }
+
+        public string GetImageUrl(string word)
+        {
+            foreach (WordModel w in words)
+            {
+                if (w.Word == word)
+                {
+                    return w.ImageUrl;
                 }
             }
             return "Word not found";
@@ -151,6 +179,36 @@ namespace Dictionary.Models
                 }
             }
             return suggestions;
+        }
+
+        public List<string> GetSuggestions(string word, string category)
+        {
+            List<string> suggestions = new List<string>();
+            if(category == "ALL" || category == null)
+            {
+                return GetSuggestions(word);
+            }
+            foreach (WordModel w in words)
+            {
+                if (w.Word.StartsWith(word) && w.Category == category)
+                {
+                    suggestions.Add(w.Word);
+                }
+            }
+            return suggestions;
+        }
+
+        public List<string> GetCategories()
+        {
+            List<string> categories = new List<string>();
+            foreach (WordModel w in words)
+            {
+                if (!categories.Contains(w.Category))
+                {
+                    categories.Add(w.Category);
+                }
+            }
+            return categories;
         }
 
         public List<WordModel> GetRandomWords(int number)

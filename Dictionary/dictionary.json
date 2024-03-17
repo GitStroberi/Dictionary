@@ -1,37 +1,50 @@
 [
     {
-        "category": "greeting",
-        "word": "hello",
-        "definition": "a greeting"
+        "category": "fruit",
+        "word": "apple",
+        "definition": "a round fruit with red or green skin and a whitish interioraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "imageurl": "../../Images/apple.png"
     },
     {
-        "category": "greeting",
-        "word": "hello1",
-        "definition": "a greeting"
+        "category": "fruit",
+        "word": "banana",
+        "definition": "a long curved fruit that grows in clusters and has soft pulpy flesh and yellow skin when ripe",
+        "imageurl": "../../Images/banana.png"
     },
     {
-        "category": "greeting",
-        "word": "hello2",
-        "definition": "a greeting"
+        "category": "fruit",
+        "word": "orange",
+        "definition": "a round juicy citrus fruit with a tough bright reddish-yellow rind",
+        "imageurl": "../../Images/orange.png"
     },
     {
-        "category": "greeting",
-        "word": "hello33",
-        "definition": "a greeting"
+        "category": "vegetable",
+        "word": "carrot",
+        "definition": "a tapering orange-colored root eaten as a vegetable",
+        "imageurl": "../../Images/carrot.png"
     },
     {
-        "category": "noun",
-        "word": "world",
-        "definition": "the earth and all people and things on it"
+        "category": "vegetable",
+        "word": "broccoli",
+        "definition": "a vegetable that has green stalks and green or purple tops",
+        "imageurl": "../../Images/broccoli.png"
     },
     {
-        "category": "noun",
-        "word": "dog apple",
-        "definition": "A dog apple"
+        "category": "animal",
+        "word": "dog",
+        "definition": "a domesticated carnivorous mammal",
+        "imageurl": "../../Images/dog.png"
     },
     {
-        "category": "noun",
-        "word": "dog apple 2",
-        "definition": "A dog apple 2"
+        "category": "animal",
+        "word": "cat",
+        "definition": "a small domesticated carnivorous mammal with soft fur",
+        "imageurl": "../../Images/cat.png"
+    },
+    {
+        "category": "object",
+        "word": "chair",
+        "definition": "a piece of furniture for one person to sit on, with a support for the back",
+        "imageurl": "../../Images/chair.png"
     }
 ]

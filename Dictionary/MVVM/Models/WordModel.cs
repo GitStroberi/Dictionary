@@ -16,5 +16,7 @@ namespace Dictionary.Models
         public string Word { get; set; }
         [JsonPropertyName("definition")]
         public string Definition { get; set; }
+        [JsonPropertyName("imageurl")]
+        public string ImageUrl { get; set; }
     }
 }

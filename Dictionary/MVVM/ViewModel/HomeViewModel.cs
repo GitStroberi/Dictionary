@@ -9,12 +9,14 @@ using System.Windows;
 using Dictionary.Models;
 using System.Collections.ObjectModel;
 using Dictionary.Core;
+using System.IO;
 
 namespace Dictionary.MVVM.ViewModel
 {
     public class HomeViewModel : Core.ViewModel
     {
         public RelayCommand SearchCommand { get; set; }
+        public RelayCommand SuggestionSelectedCommand { get; set; }
 
         private string _searchText;
         public string SearchText
@@ -26,7 +28,7 @@ namespace Dictionary.MVVM.ViewModel
                 {
                     _searchText = value;
                     OnPropertyChanged();
-                    UpdateSuggestions(_searchText);
+                    UpdateSuggestions(_searchText, _selectedCategory);
                 }
             }
         }
@@ -53,6 +55,65 @@ namespace Dictionary.MVVM.ViewModel
             }
         }
 
+        private string _definition;
+        public string Definition
+        {
+            get { return _definition; }
+            set
+            {
+                _definition = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _imageUrl;
+        public string ImageUrl
+        {
+            get { return _imageUrl; }
+            set
+            {
+                _imageUrl = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<string> _categories;
+        public ObservableCollection<string> Categories
+        {
+            get { return _categories; }
+            set
+            {
+                _categories = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _selectedCategory;
+        public string SelectedCategory
+        {
+            get { return _selectedCategory; }
+            set
+            {
+                _selectedCategory = value;
+                OnPropertyChanged();
+                UpdateSuggestions(_searchText, _selectedCategory);
+            }
+        }
+
+        private string _selectedSuggestion;
+        public string SelectedSuggestion
+        {
+            get { return _selectedSuggestion; }
+            set
+            {
+                _selectedSuggestion = value;
+                OnPropertyChanged();
+
+                // Update the search text when a suggestion is selected
+                SelectedWord = value;
+            }
+        }
+
         DictionaryManager manager;
         public HomeViewModel()
         {
@@ -62,8 +123,38 @@ namespace Dictionary.MVVM.ViewModel
             //Initialize commands
             SearchCommand = new RelayCommand(Search, o => true);
 
+            SuggestionSelectedCommand = new RelayCommand(SuggestionSelected, o => true);
+
             //Initialize suggestions
             Suggestions = new ObservableCollection<string>();
+
+            //Initialize categories
+            Categories = new ObservableCollection<string>();
+            PopulateCategories();
+        }
+
+
+        // Method to execute when a suggestion is selected
+        private void SuggestionSelected(object obj)
+        {
+            if (obj != null)
+            {
+                SelectedWord = obj.ToString();
+            }
+        }
+
+        private void PopulateCategories()
+        {
+            //Clear the categories
+            Categories.Clear();
+            Categories.Add("ALL");
+            //Get the categories from the dictionary manager
+            List<string> categories = manager.GetCategories();
+            //Add the categories to the observable collection
+            foreach (string c in categories)
+            {
+                Categories.Add(c);
+            }
         }
 
         private void Search(object obj)
@@ -71,25 +162,32 @@ namespace Dictionary.MVVM.ViewModel
             //Get the word from the textbox
             string word = obj as string;
             //Get the meaning of the word
-            string definition = manager.GetDefinition(word);
-            //If the meaning is not found, show a message box
-            if (definition == null)
+            if(SelectedCategory == "ALL" || SelectedCategory == null)
             {
-                MessageBox.Show("Meaning not found");
+                Definition = manager.GetDefinition(word);
             }
             else
             {
-                //Show the meaning in a message box
-                MessageBox.Show(definition);
+                Definition = manager.GetDefinition(word, SelectedCategory);
+            }
+            //Get the image url of the word
+            ImageUrl = manager.GetImageUrl(word);
+            if (!File.Exists(ImageUrl))
+            {
+                ImageUrl = "../../Images/missing.png";
             }
         }
 
-        private void UpdateSuggestions(string word)
+        private void UpdateSuggestions(string word, string selectedCategory)
         {
             //Clear the suggestions
             Suggestions.Clear();
             //Get the suggestions from the dictionary manager
-            List<string> suggestions = manager.GetSuggestions(word);
+            if (word == null)
+            {
+                word = "";
+            }
+            List<string> suggestions = manager.GetSuggestions(word, selectedCategory);
             //Add the suggestions to the observable collection
             foreach (string s in suggestions)
             {

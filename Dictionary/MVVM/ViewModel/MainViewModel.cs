@@ -35,6 +35,8 @@ namespace Dictionary.MVVM.ViewModel
             NavigateLoginCommand = new RelayCommand(o => { Navigation.NavigateTo<LoginViewModel>(); }, o => true);
             NavigateAdminCommand = new RelayCommand(o => { Navigation.NavigateTo<AdminViewModel>(); }, o => true);
             NavigateGameCommand = new RelayCommand(o => { Navigation.NavigateTo<GameViewModel>(); }, o => true);
+
+            Navigation.NavigateTo<HomeViewModel>();
         }
     }
 }

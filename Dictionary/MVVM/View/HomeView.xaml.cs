@@ -1,5 +1,6 @@
 ﻿
 using System.Windows.Controls;
+using Dictionary.MVVM.ViewModel;
 
 namespace Dictionary.MVVM.View
 {
