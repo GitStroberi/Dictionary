@@ -9,23 +9,21 @@
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <!-- Word Display Section -->
-        <StackPanel Grid.Row="0" HorizontalAlignment="Center">
             <TextBlock Text="{Binding CurrentDefinition}" 
                        FontSize="24" 
                        FontWeight="Bold"
                        TextAlignment="Center"
                        TextWrapping="Wrap"
+                       MaxWidth="400"
                        />
             <Image Source="{Binding CurrentImage}" Width="200" Height="200" Margin="0,10"/>
-        </StackPanel>
 
-        <!-- Guess Input Section -->
+            <!-- Guess Input Section -->
         <StackPanel Grid.Row="1" HorizontalAlignment="Center">
             <TextBox Text="{Binding GuessInput, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="0,10"/>
 

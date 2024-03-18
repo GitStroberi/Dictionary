@@ -161,6 +161,10 @@ namespace Dictionary.MVVM.ViewModel
         {
             if (_currentIndex + 1 < _words.Count)
             {
+                if(GuessInput == null)
+                {
+                    GuessInput = "";
+                }
                 if (GuessInput.ToLower() == _words[_currentIndex].Word.ToLower())
                 {
                     Score++; // Increment score if the guess is correct
