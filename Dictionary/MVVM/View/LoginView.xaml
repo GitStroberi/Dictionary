@@ -4,9 +4,44 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Dictionary.MVVM.View"
+             xmlns:models="clr-namespace:Dictionary.MVVM.Models"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="450" d:DesignWidth="400">
+    <!-- Adjusted width -->
+
+    <UserControl.Resources>
+        <models:PasswordConverter x:Key="PasswordConverter"/>
+    </UserControl.Resources>
+
+    <!-- Centering container -->
+    <Grid VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <!-- Adjusting width -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Content Grid -->
+        <Grid Grid.Column="1" Margin="20" Width ="200">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Username:" Grid.Row="0" Margin="0,0,5,5"/>
+            <TextBox Text="{Binding Username}" Grid.Row="0" Grid.Column="1" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Password:" Grid.Row="1" Margin="0,0,5,5"/>
+            <PasswordBox x:Name="passwordBox" Grid.Row="1" Grid.Column="1" Margin="0,0,0,5"/>
+
+            <Button Content="Login" Command="{Binding LoginCommand}" Grid.Row="2" Grid.Column="1">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource PasswordConverter}">
+                        <Binding ElementName="passwordBox"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>

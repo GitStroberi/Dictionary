@@ -60,7 +60,7 @@ namespace Dictionary.Models
             System.IO.File.WriteAllText("../../dictionary.json", jsonString);
         }
 
-        public void AddWord(string word, string category, string definition)
+        public void AddWord(string word, string category, string definition, string imageurl)
         {
             word = word.ToLower();
             category = category.ToLower();
@@ -72,7 +72,7 @@ namespace Dictionary.Models
                     return;
                 }
             }
-            words.Add(new WordModel { Word = word, Category = category, Definition = definition });
+            words.Add(new WordModel { Word = word, Category = category, Definition = definition, ImageUrl = imageurl });
             string jsonString = JsonSerializer.Serialize(words);
             System.IO.File.WriteAllText("../../dictionary.json", jsonString);
         }

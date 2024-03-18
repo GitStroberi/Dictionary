@@ -6,7 +6,85 @@
              xmlns:local="clr-namespace:Dictionary.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Welcome Message -->
+        <TextBlock Grid.Row="0"
+               Text="Welcome to the Dictionary App"
+               HorizontalAlignment="Center"
+               FontSize="30"
+               FontWeight="Bold"
+               Margin="0,0,0,20"/>
+
+        <!-- Search Section -->
+        <StackPanel Grid.Row="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="0,0,0,10">
+            <ComboBox ItemsSource="{Binding Categories}"
+                  SelectedItem="{Binding SelectedCategory}"
+                  Width="100"
+                  Margin="0,0,10,0"/>
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                 Width="300"
+                 Margin="0,0,10,0"/>
+            <Button Content="Search" 
+                Command="{Binding SearchCommand}"
+                CommandParameter="{Binding SearchText}"
+                Width="50"/>
+        </StackPanel>
+
+        <!-- Suggestions ListBox -->
+        <ListBox Grid.Row="2"
+             ItemsSource="{Binding Suggestions}"
+             SelectedItem="{Binding SelectedSuggestion, Mode=TwoWay}"
+             Margin="0,0,0,10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" Margin="5"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Definition and Image Section -->
+        <StackPanel Grid.Row="3"
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="0,0,0,10">
+            <TextBlock Text="{Binding Definition}"
+                   TextWrapping="Wrap"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Margin="0,0,10,0"
+                   MaxWidth="400"/>
+            <Image Source="{Binding ImageUrl}"
+               Width="100"
+               Height="100"/>
+        </StackPanel>
+
+        <!-- Add and Remove Buttons -->
+        <StackPanel Grid.Row="4"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="0,0,0,10">
+	        <Button Content="Add Word" 
+	                Command="{Binding AddWordCommand}"
+	                Width="100"
+	                Margin="0,0,10,0"/>
+	        <Button Content="Remove Word" 
+	                Command="{Binding RemoveWordCommand}"
+	                Width="100"
+	                Margin="0,0,10,0"/>
+        </StackPanel>
     </Grid>
 </UserControl>
