@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Dictionary.MVVM.ViewModel;
 using Dictionary.Core;
 using Dictionary.Services;
+using Dictionary.Models;
 
 namespace Dictionary
 {

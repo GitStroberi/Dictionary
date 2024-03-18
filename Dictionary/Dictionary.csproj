@@ -180,5 +180,15 @@
     <Resource Include="Images\missing.jpg" />
     <Resource Include="Images\missing.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\apple.jpg" />
+    <Resource Include="Images\banana.png" />
+    <Resource Include="Images\broccoli.png" />
+    <Resource Include="Images\carrot.png" />
+    <Resource Include="Images\cat.png" />
+    <Resource Include="Images\chair.png" />
+    <Resource Include="Images\dog.png" />
+    <Resource Include="Images\orange.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
