@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Dictionary.Core;
 
-
-
 namespace Dictionary.Services
 {
     public interface INavigationService

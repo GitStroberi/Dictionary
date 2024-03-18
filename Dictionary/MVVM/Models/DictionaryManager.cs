@@ -168,6 +168,22 @@ namespace Dictionary.Models
             return "Word not found";
         }
 
+        public string GetImageUrl(string word, string category)
+        {
+            if (category == "ALL")
+            {
+                return GetImageUrl(word);
+            }
+            foreach (WordModel w in words)
+            {
+                if (w.Word == word && w.Category == category)
+                {
+                    return w.ImageUrl;
+                }
+            }
+            return "Word not found";
+        }
+
         public List<string> GetSuggestions(string word)
         {
             List<string> suggestions = new List<string>();

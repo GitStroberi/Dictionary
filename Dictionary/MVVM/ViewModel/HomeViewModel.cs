@@ -171,7 +171,7 @@ namespace Dictionary.MVVM.ViewModel
                 Definition = manager.GetDefinition(word, SelectedCategory);
             }
             //Get the image url of the word
-            ImageUrl = manager.GetImageUrl(word);
+            ImageUrl = manager.GetImageUrl(word, SelectedCategory);
             if (!File.Exists(ImageUrl))
             {
                 ImageUrl = "../../Images/missing.png";
